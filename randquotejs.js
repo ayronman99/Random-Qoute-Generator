@@ -6,7 +6,22 @@ const projectName = 'random-quote-machine';
 
 let quotesData;
 
-var colors = [
+let backimg = [
+  'url(./backgs/aron.jpg)',
+  'url(./backgs/belle.jpg)',
+  'url(./backgs/blaque.jpg)',
+  'url(./backgs/eberhard.jpg)',
+  'url(./backgs/eberhard2.jpg)',
+  'url(./backgs/fabian.jpg)',
+  'url(./backgs/gundareva.jpg)',
+  'url(./backgs/kasuma.jpg)',
+  'url(./backgs/malik.jpg)',
+  'url(./backgs/pavlova.jpg)',
+  'url(./backgs/philippe.jpg)',
+  'url(./backgs/stein.jpg)'
+]
+
+let colors = [
     '#5e2dad',
     '#2d44ad',
     '#2d80ad',
@@ -21,7 +36,7 @@ var colors = [
     '#0f2647'
   ];
 
-  var currQuote ='', currAuth = '';
+  let currQuote ='', currAuth = '';
 
   function getQuotes() {
     return $.ajax({
@@ -52,7 +67,7 @@ var colors = [
 
      currQuote = randomQuote.quoteText;
      currAuth = () => {
-        if(randomQuote.quoteAuthor === null){
+        if(randomQuote.quoteAuthor === ""){
           return emptyAuth;
         } 
          return randomQuote.quoteAuthor
@@ -74,31 +89,24 @@ var colors = [
         $('#author').html(currAuth);
       });
     
-      var color = Math.floor(Math.random() * colors.length);
+      let color = Math.floor(Math.random() * colors.length);
 
       $('#wrapper').animate(
         {
-          backgroundColor: colors[color],
           color: colors[color]
         },
         1000
       );
 
+      $('html body').css(
+        "background-image", backimg[color]
+      );
       $('html body').animate(
         {
-          backgroundColor: colors[color],
-          color: colors[color]
-        },
-        1000
+          opacity: 1
+        }, 1000
       );
-
-      $('.top-div').animate(
-        {
-          backgroundColor: colors[color],
-        },
-        1000
-      );
-
+      
       $('.button').animate({
           backgroundColor: colors[color]
         },
