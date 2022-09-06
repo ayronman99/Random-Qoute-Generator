@@ -62,7 +62,7 @@ i {
 
 #quote-box {
     position: relative;
-    background-color: chartreuse;
+    background-color: #cfd4ddb9;
     padding: 3rem;
     border-radius: 5px;
     display:table;
@@ -151,7 +151,7 @@ i {
         flex-direction: column;
         width: auto;
         height: auto;
-        background-color: chartreuse;
+        background-color: #cfd4ddb9;
         border-radius: 5px;
         margin-left: 10px;
         margin-right: 10px;
